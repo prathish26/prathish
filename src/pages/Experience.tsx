@@ -6,43 +6,39 @@ import { Building, Award } from "lucide-react";
 
 const experiences = [
   {
-    role: "Cybersecurity Intern",
-    company: "IITM Pravartak Technologies Foundation (IIT Madras)",
-    period: "July 2024 - Present",
+    role: "Drone Security & Automation Intern",
+    company: "NTech.labs - Chennai, India",
+    period: "June 2025 - July 2025",
     achievements: [
-      "Developed an AI-powered phishing detection system achieving 98.7% accuracy",
-      "Implemented advanced ML algorithms for URL analysis and threat classification",
-      "Collaborated with research team on cybersecurity automation projects"
+      "Assisted in developing security features for drone communication using encrypted radio frequencies",
+      "Contributed to automation of drone functions and secured data transmission protocols"
     ]
   },
   {
-    role: "Machine Learning Intern",
-    company: "Appinventiv Technologies",
-    period: "May 2024 - June 2024",
+    role: "Penetration Testing Intern",
+    company: "Cybertronium Sdn.Bhd. - Malaysia",
+    period: "February 2025 - March 2025",
     achievements: [
-      "Built and deployed ML models for predictive analytics",
-      "Optimized model performance through feature engineering and hyperparameter tuning",
-      "Integrated ML solutions into production applications"
+      "Conducted real-time penetration testing on web and mobile platforms using OWASP and OSWAP tools",
+      "Performed vulnerability assessments, zero-click exploits, and post-exploitation analysis in lab environments"
     ]
   },
   {
-    role: "DevOps Intern",
-    company: "CloudThat Technologies",
-    period: "March 2024 - April 2024",
+    role: "AI Call Automation Intern",
+    company: "Preston Consulting and EdTech Pvt Ltd - Chennai, India",
+    period: "June 2024 - July 2024",
     achievements: [
-      "Designed and implemented CI/CD pipelines using Jenkins and Docker",
-      "Automated infrastructure deployment using Terraform and Kubernetes",
-      "Improved deployment efficiency by 40% through automation"
+      "Developed an AI-based call automation system integrated with chatbot functionality for client interaction",
+      "Applied Natural Language Processing (NLP) for user intent recognition and response generation"
     ]
   },
   {
-    role: "Cybersecurity Intern",
-    company: "Data Knight India",
-    period: "January 2024 - February 2024",
+    role: "Multi-Media Intern",
+    company: "Kynhood technologies private limited - Chennai, India",
+    period: "June 2023 - July 2023",
     achievements: [
-      "Conducted vulnerability assessments and penetration testing",
-      "Developed automated security scanning tools",
-      "Created comprehensive security reports and remediation strategies"
+      "Contributed to multimedia content creation, video editing, and motion graphics for internal and external use",
+      "Designed creative assets for marketing campaigns, client presentations, and social media content"
     ]
   }
 ];
@@ -67,10 +63,18 @@ const skillCategories = {
 };
 
 const certifications = [
-  { name: "CompTIA Security+", issuer: "CompTIA", year: "2024" },
-  { name: "IBM Cybersecurity Analyst", issuer: "IBM", year: "2024" },
-  { name: "Oracle Cloud Infrastructure", issuer: "Oracle", year: "2023" },
-  { name: "Ethical Hacking Essentials", issuer: "EC-Council", year: "2023" }
+  { name: "Certified in Penetration Testing", issuer: "Cybertronium (Malaysia)", year: "2025" },
+  { name: "CompTIA Security+", issuer: "Udemy", year: "2024" },
+  { name: "Ethical Hacking", issuer: "Udemy", year: "2024" },
+  { name: "Cyber Threat Management", issuer: "Cisco", year: "2024" },
+  { name: "Cybersecurity Fundamentals", issuer: "IBM", year: "2024" },
+  { name: "Cloud Infrastructure 2024 - Generative AI Certified Professional", issuer: "Oracle", year: "2024" },
+  { name: "TCS iON Certification in Artificial Intelligence", issuer: "Tata Consultancy Services (TCS)", year: "2024" },
+  { name: "Cybersecurity Program", issuer: "Infosys", year: "2024" },
+  { name: "Python Programming", issuer: "FIIT", year: "2023" },
+  { name: "Oracle Cloud Infrastructure Foundations Associate", issuer: "Oracle", year: "2025" },
+  { name: "Oracle + Oracle Cloud Infrastructure AI Foundations Associate", issuer: "Oracle", year: "2025" },
+  { name: "Oracle Data Platform Foundations Associate", issuer: "Oracle", year: "2025" }
 ];
 
 const Experience = () => {
@@ -156,7 +160,7 @@ const Experience = () => {
         </section>
 
         {/* Certifications */}
-        <section>
+        <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
             <Award className="w-8 h-8 text-secondary" />
             Certifications
@@ -166,13 +170,47 @@ const Experience = () => {
             {certifications.map((cert, index) => (
               <Card key={index} className="glass p-6 border-glow-secondary">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold">{cert.name}</h3>
-                  <p className="text-muted-foreground">{cert.issuer}</p>
+                  <h3 className="text-lg font-bold">{cert.name}</h3>
+                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                   <Badge variant="outline">{cert.year}</Badge>
                 </div>
               </Card>
             ))}
           </div>
+        </section>
+
+        {/* Achievements */}
+        <section>
+          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
+            <Award className="w-8 h-8 text-accent" />
+            Achievements
+          </h2>
+
+          <Card className="glass p-8 space-y-4 border-glow-accent">
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 text-xl">•</span>
+                <p className="text-foreground leading-relaxed">
+                  Published a <span className="font-semibold text-accent">Scopus-indexed research paper</span> titled 
+                  "AI-Powered Chrome Extension for Real-Time Detection of Phishing Attacks, Investment Scams, and Fake E-Commerce Websites."
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 text-xl">•</span>
+                <p className="text-foreground leading-relaxed">
+                  Secured <span className="font-semibold text-accent">2nd place</span> in a department-level competition for 
+                  developing a College ERP system, representing the department.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 text-xl">•</span>
+                <p className="text-foreground leading-relaxed">
+                  Selected as a <span className="font-semibold text-accent">finalist</span> in a paper presentation competition 
+                  at Vel Tech Multi Tech Engineering College.
+                </p>
+              </li>
+            </ul>
+          </Card>
         </section>
       </div>
     </div>
