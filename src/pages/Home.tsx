@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import prathishProfile from "@/assets/prathish-profile.jpg";
 
 const Home = () => {
   const [scanUrl, setScanUrl] = useState("");
@@ -31,16 +32,29 @@ const Home = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-6">
-            <h1 className="text-6xl md:text-7xl font-bold">
-              <span className="glow-primary">Prathish Raj</span>
-            </h1>
-            <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
-              Architecting the Convergence of{" "}
-              <span className="text-primary font-semibold">AI</span>,{" "}
-              <span className="text-secondary font-semibold">Cybersecurity</span>, and{" "}
-              <span className="text-accent font-semibold">DevOps</span>
-            </p>
+          <div className="flex flex-col items-center space-y-8">
+            {/* Profile Picture */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
+              <img
+                src={prathishProfile}
+                alt="Prathish Raj"
+                className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/50 shadow-2xl"
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="text-center space-y-6">
+              <h1 className="text-6xl md:text-7xl font-bold">
+                <span className="glow-primary">Prathish Raj</span>
+              </h1>
+              <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
+                Architecting the Convergence of{" "}
+                <span className="text-primary font-semibold">AI</span>,{" "}
+                <span className="text-secondary font-semibold">Cybersecurity</span>, and{" "}
+                <span className="text-accent font-semibold">DevOps</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
