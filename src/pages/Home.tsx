@@ -5,7 +5,7 @@ import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react"
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import prathishProfile from "@/assets/prathish-profile.jpg";
-import pallanguzhiGame from "@/assets/pallanguzhi-game.jpg";
+import pallanguzhiGame from "@/assets/pallanguzhi-mr-game.png";
 
 const Home = () => {
   const [scanUrl, setScanUrl] = useState("");
