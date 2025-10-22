@@ -19,36 +19,42 @@ const AIAssistant = () => {
   ]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = input.trim();
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
     setInput("");
 
-    // Simple NLP-based responses
-    setTimeout(() => {
-      let response = "";
-      const lowerInput = userMessage.toLowerCase();
+    try {
+      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=AIzaSyD4kTuKjq5dcXM6-YL3gkxxWXzaWQNw0hg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `You are Prathish Raj's AI assistant. Answer questions about his work, projects, skills, and experience. Context:
+- Professional: Specializes in AI/ML, Cybersecurity, and DevOps
+- Projects: AI Phishing Detection (98.7% accuracy), Pallanguzhi HoloLens 2 MR Game, Web Vulnerability Scanner, AI Mental Health Chatbot
+- Skills: Python, Java, LLMs, Penetration Testing, Docker, Kubernetes, Unreal Engine 5
+- Experience: Internships at IIT Madras, Cybertronium, Preston Consulting, NTech.labs, Kynhood
+- Contact: prathish1926@gmail.com, +91 79044 03394
+- Freelance: Available for AI-driven call support, intelligent support systems, AI security solutions
 
-      if (lowerInput.includes("freelance") || lowerInput.includes("service")) {
-        response = "Prathish offers freelance services in AI technologies, including building AI-driven call support assistance, intelligent support systems, and AI-powered security solutions. You can contact him to discuss a project.";
-      } else if (lowerInput.includes("hololens") || lowerInput.includes("game") || lowerInput.includes("pakalkuzhi")) {
-        response = "Certainly. 'PakalKuzhi' is an MR game built with Unreal Engine and HoloLens 2. It's a traditional board game reimagined in mixed reality. Check out the Projects page for more details.";
-      } else if (lowerInput.includes("phishing") || lowerInput.includes("detection")) {
-        response = "The AI Phishing Detection system uses machine learning with 98.7% accuracy to identify malicious URLs. It was developed during his internship at IIT Madras and is featured on the projects page.";
-      } else if (lowerInput.includes("skill") || lowerInput.includes("technology")) {
-        response = "Prathish specializes in AI/ML (Python, scikit-learn, NLP), Cybersecurity (Penetration Testing, Metasploit, Burp Suite), and DevOps (Docker, Kubernetes, Jenkins). Visit the Blueprint page to see all his skills.";
-      } else if (lowerInput.includes("experience") || lowerInput.includes("work") || lowerInput.includes("intern")) {
-        response = "Prathish has completed internships at IIT Madras (IITM Pravartak), Appinventiv Technologies, CloudThat Technologies, and Data Knight India, focusing on cybersecurity, AI/ML, and DevOps.";
-      } else if (lowerInput.includes("contact") || lowerInput.includes("email") || lowerInput.includes("phone")) {
-        response = "You can reach Prathish at prathish1926@gmail.com or call him at +91 79044 03394. Visit the Contact page to send a message.";
-      } else {
-        response = "I can help you learn more about Prathish's projects, skills, work experience, or freelance services. What would you like to know?";
-      }
-
-      setMessages((prev) => [...prev, { role: "assistant", content: response }]);
-    }, 500);
+User question: ${userMessage}`
+            }]
+          }]
+        })
+      });
+      const data = await response.json();
+      const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "I apologize, I'm having trouble responding right now.";
+      setMessages((prev) => [...prev, { role: "assistant", content: aiResponse }]);
+    } catch (error) {
+      setMessages((prev) => [...prev, { 
+        role: "assistant", 
+        content: "I'm experiencing technical difficulties. Please try again or contact Prathish directly at prathish1926@gmail.com" 
+      }]);
+    }
   };
 
   return (

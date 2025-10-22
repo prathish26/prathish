@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Brain, Terminal, Bot, Code, Gamepad2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Shield, Brain, Terminal, Bot, Code, Gamepad2, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -13,9 +14,9 @@ const projects = [
   },
   {
     icon: Gamepad2,
-    title: "PakalKuzhi - HoloLens 2 MR Game",
+    title: "Pallanguzhi - HoloLens 2 MR Game",
     challenge: "Bringing traditional board games into the modern era through immersive mixed reality.",
-    solution: "Created an interactive mixed reality version of the traditional PakalKuzhi board game using Unreal Engine 5 and HoloLens 2. Players can interact with holographic game pieces in their physical space, blending cultural heritage with cutting-edge spatial computing.",
+    solution: "Created an interactive mixed reality version of the traditional Pallanguzhi board game using Unreal Engine 5 and HoloLens 2. Players can interact with holographic game pieces in their physical space, blending cultural heritage with cutting-edge spatial computing.",
     tech: ["Unreal Engine 5", "HoloLens 2", "C++", "Mixed Reality", "Spatial Computing"],
     color: "accent"
   },
@@ -33,7 +34,8 @@ const projects = [
     challenge: "Providing accessible mental health support through conversational AI.",
     solution: "Developed an empathetic AI chatbot using large language models that provides mental health support, mood tracking, and personalized coping strategies. The system uses sentiment analysis and contextual understanding to deliver appropriate responses.",
     tech: ["Python", "LLMs", "NLP", "Sentiment Analysis", "Conversational AI"],
-    color: "primary"
+    color: "primary",
+    link: "https://thehealbot.lovable.app"
   },
   {
     icon: Code,
@@ -105,6 +107,17 @@ const Projects = () => {
                       ))}
                     </div>
                   </div>
+                  
+                  {project.link && (
+                    <div className="pt-2">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <Button className="group">
+                          View Live Project
+                          <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Card>
             );

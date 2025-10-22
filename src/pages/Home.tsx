@@ -5,26 +5,69 @@ import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react"
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import prathishProfile from "@/assets/prathish-profile.jpg";
+import pallanguzhiGame from "@/assets/pallanguzhi-game.jpg";
 
 const Home = () => {
   const [scanUrl, setScanUrl] = useState("");
   const [scanResult, setScanResult] = useState("");
   const [isScanning, setIsScanning] = useState(false);
+  const [vulnUrl, setVulnUrl] = useState("");
+  const [vulnResult, setVulnResult] = useState("");
+  const [isVulnScanning, setIsVulnScanning] = useState(false);
 
-  const handleScan = () => {
+  const handleScan = async () => {
     if (!scanUrl.trim()) return;
     setIsScanning(true);
     setScanResult("");
 
-    setTimeout(() => {
-      const isMalicious = Math.random() > 0.5;
-      setScanResult(
-        isMalicious
-          ? "⚠️ MALICIOUS SITE DETECTED - Phishing indicators found"
-          : "✓ SITE SECURE - No threats detected"
+    try {
+      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=AIzaSyD4kTuKjq5dcXM6-YL3gkxxWXzaWQNw0hg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `Analyze this URL for phishing indicators: ${scanUrl}. Respond with either "MALICIOUS" or "SECURE" followed by a brief reason.`
+            }]
+          }]
+        })
+      });
+      const data = await response.json();
+      const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "Error analyzing URL";
+      setScanResult(result.includes("MALICIOUS") 
+        ? "⚠️ MALICIOUS SITE DETECTED - " + result
+        : "✓ SITE SECURE - " + result
       );
-      setIsScanning(false);
-    }, 2000);
+    } catch (error) {
+      setScanResult("❌ Error analyzing URL");
+    }
+    setIsScanning(false);
+  };
+
+  const handleVulnScan = async () => {
+    if (!vulnUrl.trim()) return;
+    setIsVulnScanning(true);
+    setVulnResult("");
+
+    try {
+      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=AIzaSyD4kTuKjq5dcXM6-YL3gkxxWXzaWQNw0hg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `Perform a security assessment on this URL: ${vulnUrl}. Check for common vulnerabilities like SQL Injection, XSS, CSRF, Directory Traversal. Format response as terminal output with [+] prefix for each check.`
+            }]
+          }]
+        })
+      });
+      const data = await response.json();
+      const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "Error scanning";
+      setVulnResult(result);
+    } catch (error) {
+      setVulnResult("❌ Error scanning website");
+    }
+    setIsVulnScanning(false);
   };
 
   return (
@@ -65,15 +108,17 @@ const Home = () => {
           <Card className="glass p-8 border-glow-primary">
             <p className="text-lg leading-relaxed text-muted-foreground">
               Relentlessly curious and architect-minded, I thrive at the{" "}
-              <span className="text-primary font-semibold">convergence of cybersecurity, DevOps, and AI automation</span>.
-              My professional journey spans from building{" "}
-              <span className="text-secondary font-semibold">AI-driven phishing detection systems</span> at IIT Madras to
-              designing immersive{" "}
-              <span className="text-accent font-semibold">MR experiences on HoloLens 2</span>.
-              I believe the most impactful solutions are those that harmonize cutting-edge{" "}
-              <span className="text-primary font-semibold">machine learning</span>, robust{" "}
-              <span className="text-secondary font-semibold">security practices</span>, and scalable{" "}
-              <span className="text-accent font-semibold">DevOps workflows</span>.
+              <span className="text-primary font-semibold">intersection of cybersecurity, DevOps, and AI automation</span>.
+              With a strong foundation in{" "}
+              <span className="text-secondary font-semibold">Java, Python, and system-level design</span>, I engineer secure, scalable, and intelligent solutions that blend automation with innovation.
+              I specialize in{" "}
+              <span className="text-primary font-semibold">LLM-powered agents</span>,{" "}
+              <span className="text-accent font-semibold">cloud-native architectures</span>, and adaptive{" "}
+              <span className="text-secondary font-semibold">DevOps pipelines</span> that think and evolve in real time.
+              A creator at heart with a{" "}
+              <span className="text-primary font-semibold">security-first mindset</span>, I'm fluent across code, architecture, and emerging technologies—from{" "}
+              <span className="text-accent font-semibold">XR experiences</span> to{" "}
+              <span className="text-secondary font-semibold">backend intelligence</span>—bridging complex domains with clarity, precision, and forward-thinking engineering.
             </p>
           </Card>
         </div>
@@ -184,15 +229,30 @@ const Home = () => {
                 Automated security assessment tool
               </p>
               
-              <div className="bg-black/40 p-4 rounded-lg font-mono text-sm space-y-1 h-48 overflow-hidden">
-                <div className="text-secondary">[+] Starting scan...</div>
-                <div className="text-muted-foreground">[+] Target: example-site.com</div>
-                <div className="text-secondary">[+] Checking for SQL Injection... [SECURE]</div>
-                <div className="text-accent">[+] Checking for XSS... [VULNERABLE]</div>
-                <div className="text-secondary">[+] Checking for CSRF... [SECURE]</div>
-                <div className="text-accent">[+] Checking for Directory Traversal... [VULNERABLE]</div>
-                <div className="text-muted-foreground">[+] Generating report...</div>
-                <div className="text-primary animate-pulse">[+] Scan complete. 2 vulnerabilities found.</div>
+              <div className="space-y-2">
+                <Input
+                  placeholder="Enter website URL to scan..."
+                  value={vulnUrl}
+                  onChange={(e) => setVulnUrl(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleVulnScan()}
+                />
+                <Button 
+                  onClick={handleVulnScan} 
+                  className="w-full"
+                  disabled={isVulnScanning}
+                >
+                  {isVulnScanning ? "Scanning..." : "Scan Website"}
+                </Button>
+                <div className="bg-black/40 p-4 rounded-lg font-mono text-sm space-y-1 h-48 overflow-auto">
+                  {vulnResult ? (
+                    <div className="text-foreground whitespace-pre-wrap">{vulnResult}</div>
+                  ) : (
+                    <>
+                      <div className="text-secondary">[+] Ready to scan...</div>
+                      <div className="text-muted-foreground">[+] Enter a URL above</div>
+                    </>
+                  )}
+                </div>
               </div>
 
               <Link to="/projects" className="inline-flex items-center text-secondary hover:underline">
@@ -200,23 +260,27 @@ const Home = () => {
               </Link>
             </Card>
 
-            {/* PakalKuzhi MR Game */}
+            {/* Pallanguzhi MR Game */}
             <Card className="glass p-6 space-y-4 border-glow-accent md:col-span-2">
               <div className="flex items-center gap-2">
                 <Brain className="w-6 h-6 text-accent" />
-                <h3 className="text-2xl font-bold">PakalKuzhi - HoloLens 2 MR Game</h3>
+                <h3 className="text-2xl font-bold">Pallanguzhi - HoloLens 2 MR Game</h3>
               </div>
               <p className="text-muted-foreground">
                 Traditional board game reimagined in mixed reality using Unreal Engine
               </p>
               
-              <div className="bg-gradient-to-br from-accent/20 to-primary/20 rounded-lg p-8 text-center space-y-4">
-                <div className="text-6xl">🎮</div>
-                <p className="text-lg font-semibold">Interactive MR Experience</p>
-                <p className="text-sm text-muted-foreground">
-                  Built with Unreal Engine 5 • HoloLens 2 • Spatial Computing
-                </p>
+              <div className="rounded-lg overflow-hidden">
+                <img 
+                  src={pallanguzhiGame} 
+                  alt="Pallanguzhi HoloLens 2 MR Game" 
+                  className="w-full h-64 object-cover"
+                />
               </div>
+              
+              <p className="text-sm text-muted-foreground text-center">
+                Built with Unreal Engine 5 • HoloLens 2 • Spatial Computing
+              </p>
 
               <Link to="/projects" className="inline-flex items-center text-accent hover:underline">
                 View Full Project <ExternalLink className="ml-1 h-4 w-4" />
