@@ -74,7 +74,7 @@ User question: ${userMessage}`
           <div className="flex items-center justify-between p-3 sm:p-4 border-b border-border">
             <div className="flex items-center gap-2">
               <Bot className="h-5 w-5 text-primary" />
-              <span className="font-semibold text-sm sm:text-base">Architect's Assistant</span>
+              <span className="font-semibold text-sm sm:text-base">Prathish's Assistant</span>
             </div>
             <Button
               variant="ghost"
