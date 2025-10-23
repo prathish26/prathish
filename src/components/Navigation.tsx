@@ -1,8 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
-import { Code2 } from "lucide-react";
+import { Code2, Menu } from "lucide-react";
+import { useState } from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   
   const links = [
     { path: "/", label: "Hub" },
@@ -13,14 +23,15 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b">
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-            <Code2 className="w-6 h-6 text-primary" />
+          <Link to="/" className="flex items-center gap-2 text-lg sm:text-xl font-bold">
+            <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             <span className="glow-primary">Prathish Raj</span>
           </Link>
           
-          <div className="flex items-center gap-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
                 key={link.path}
@@ -38,6 +49,36 @@ const Navigation = () => {
               </Link>
             ))}
           </div>
+
+          {/* Mobile Navigation */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="glass">
+              <SheetHeader>
+                <SheetTitle className="text-left">Navigation</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 mt-8">
+                {links.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-medium transition-colors p-3 rounded-lg ${
+                      location.pathname === link.path
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>

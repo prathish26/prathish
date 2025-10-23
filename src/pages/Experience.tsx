@@ -88,29 +88,29 @@ const Experience = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center space-y-4 mb-16">
-          <h1 className="text-5xl font-bold glow-primary">The Blueprint</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl font-bold glow-primary">The Blueprint</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Experience, skills, and certifications that define the architect
           </p>
         </div>
 
         {/* Work Experience Timeline */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
-            <Building className="w-8 h-8 text-primary" />
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
+            <Building className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             Work Experience
           </h2>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {experiences.map((exp, index) => (
-              <Card key={index} className="glass p-6 border-l-4 border-l-primary">
+              <Card key={index} className="glass p-4 sm:p-6 border-l-4 border-l-primary">
                 <div className="space-y-3">
                   <div>
-                    <h3 className="text-2xl font-bold">{exp.role}</h3>
-                    <p className="text-lg text-muted-foreground">{exp.company}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold">{exp.role}</h3>
+                    <p className="text-base sm:text-lg text-muted-foreground">{exp.company}</p>
                     <p className="text-sm text-muted-foreground">{exp.period}</p>
                   </div>
                   <ul className="space-y-2 ml-4">

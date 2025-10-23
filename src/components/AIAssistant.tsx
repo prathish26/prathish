@@ -62,19 +62,19 @@ User question: ${userMessage}`
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg animate-pulse-glow"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 h-12 w-12 sm:h-14 sm:w-14 rounded-full shadow-lg animate-pulse-glow z-40"
           size="icon"
         >
-          <Bot className="h-6 w-6" />
+          <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
       )}
 
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[500px] glass rounded-lg shadow-2xl flex flex-col border-glow-primary">
-          <div className="flex items-center justify-between p-4 border-b border-border">
+        <div className="fixed bottom-4 right-4 left-4 sm:bottom-6 sm:right-6 sm:left-auto sm:w-96 h-[500px] max-h-[calc(100vh-2rem)] glass rounded-lg shadow-2xl flex flex-col border-glow-primary z-40">
+          <div className="flex items-center justify-between p-3 sm:p-4 border-b border-border">
             <div className="flex items-center gap-2">
               <Bot className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Architect's Assistant</span>
+              <span className="font-semibold text-sm sm:text-base">Architect's Assistant</span>
             </div>
             <Button
               variant="ghost"
@@ -86,7 +86,7 @@ User question: ${userMessage}`
             </Button>
           </div>
 
-          <ScrollArea className="flex-1 p-4">
+          <ScrollArea className="flex-1 p-3 sm:p-4">
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <div
@@ -94,20 +94,20 @@ User question: ${userMessage}`
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-lg p-3 ${
+                    className={`max-w-[85%] rounded-lg p-2.5 sm:p-3 ${
                       message.role === "user"
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted text-foreground"
                     }`}
                   >
-                    <p className="text-sm">{message.content}</p>
+                    <p className="text-xs sm:text-sm">{message.content}</p>
                   </div>
                 </div>
               ))}
             </div>
           </ScrollArea>
 
-          <div className="p-4 border-t border-border">
+          <div className="p-3 sm:p-4 border-t border-border">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -119,9 +119,9 @@ User question: ${userMessage}`
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything..."
-                className="flex-1"
+                className="flex-1 text-sm"
               />
-              <Button type="submit" size="icon">
+              <Button type="submit" size="icon" className="shrink-0">
                 <Send className="h-4 w-4" />
               </Button>
             </form>

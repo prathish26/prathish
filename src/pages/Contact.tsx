@@ -24,11 +24,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center space-y-4 mb-16">
-          <h1 className="text-5xl font-bold glow-primary">Let's Connect</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl font-bold glow-primary">Let's Connect</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Ready to collaborate on your next AI project? Get in touch.
           </p>
         </div>

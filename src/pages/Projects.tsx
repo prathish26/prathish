@@ -57,26 +57,26 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center space-y-4 mb-16">
-          <h1 className="text-5xl font-bold glow-primary">Case Studies</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl font-bold glow-primary">Case Studies</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Deep dives into projects at the intersection of AI, security, and innovation
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <Card key={index} className="glass p-8 space-y-6 border-glow-primary">
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-lg bg-${project.color}/20`}>
-                    <Icon className={`w-8 h-8 text-${project.color}`} />
+              <Card key={index} className="glass p-6 sm:p-8 space-y-6 border-glow-primary">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className={`p-2 sm:p-3 rounded-lg bg-${project.color}/20 shrink-0`}>
+                    <Icon className={`w-6 h-6 sm:w-8 sm:h-8 text-${project.color}`} />
                   </div>
-                  <div className="flex-1">
-                    <h2 className="text-3xl font-bold mb-2">{project.title}</h2>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-2">{project.title}</h2>
                   </div>
                 </div>
 

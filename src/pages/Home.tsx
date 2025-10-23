@@ -73,25 +73,25 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col items-center space-y-8">
+          <div className="flex flex-col items-center space-y-6 sm:space-y-8">
             {/* Profile Picture */}
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
               <img
                 src={prathishProfile}
                 alt="Prathish Raj"
-                className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/50 shadow-2xl"
+                className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/50 shadow-2xl"
               />
             </div>
 
             {/* Text Content */}
-            <div className="text-center space-y-6">
-              <h1 className="text-6xl md:text-7xl font-bold">
+            <div className="text-center space-y-4 sm:space-y-6">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold">
                 <span className="glow-primary">Prathish Raj</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto px-4">
                 Architecting the Convergence of{" "}
                 <span className="text-primary font-semibold">AI</span>,{" "}
                 <span className="text-secondary font-semibold">Cybersecurity</span>, and{" "}
@@ -103,10 +103,10 @@ const Home = () => {
       </section>
 
       {/* Summary Section */}
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
-          <Card className="glass p-8 border-glow-primary">
-            <p className="text-lg leading-relaxed text-muted-foreground">
+          <Card className="glass p-6 sm:p-8 border-glow-primary">
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
               Relentlessly curious and architect-minded, I thrive at the{" "}
               <span className="text-primary font-semibold">intersection of cybersecurity, DevOps, and AI automation</span>.
               With a strong foundation in{" "}
@@ -125,17 +125,17 @@ const Home = () => {
       </section>
 
       {/* Freelance Services */}
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-4xl font-bold glow-secondary">Available for Freelance Projects</h2>
-            <p className="text-xl text-muted-foreground">
+          <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold glow-secondary">Available for Freelance Projects</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground px-4">
               Specializing in AI technologies and intelligent systems
             </p>
           </div>
 
-          <Card className="glass p-8 space-y-6">
-            <div className="grid md:grid-cols-3 gap-6">
+          <Card className="glass p-6 sm:p-8 space-y-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <Brain className="w-8 h-8 text-primary mb-2" />
                 <h3 className="font-semibold text-lg">AI Call Support</h3>
@@ -172,13 +172,13 @@ const Home = () => {
       </section>
 
       {/* Featured Projects - Interactive Arsenal */}
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 glow-primary">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 glow-primary">
             The Interactive Arsenal
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {/* AI Phishing Detection Demo */}
             <Card className="glass p-6 space-y-4 border-glow-primary">
               <div className="flex items-center gap-2">
