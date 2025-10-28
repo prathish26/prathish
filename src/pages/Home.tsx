@@ -119,6 +119,9 @@ const Home = () => {
               <span className="text-primary font-semibold">security-first mindset</span>, I'm fluent across code, architecture, and emerging technologies—from{" "}
               <span className="text-accent font-semibold">XR experiences</span> to{" "}
               <span className="text-secondary font-semibold">backend intelligence</span>—bridging complex domains with clarity, precision, and forward-thinking engineering.
+              Beyond the technical realm, I capture stories through the lens as a{" "}
+              <span className="text-primary font-semibold">wildlife photographer</span> and{" "}
+              <span className="text-accent font-semibold">freelance cinematographer</span>, illuminating the unseen beauty of the world one frame at a time.
             </p>
           </Card>
         </div>
@@ -130,12 +133,12 @@ const Home = () => {
           <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold glow-secondary">Available for Freelance Projects</h2>
             <p className="text-lg sm:text-xl text-muted-foreground px-4">
-              Specializing in AI technologies and intelligent systems
+              Specializing in AI technologies, intelligent systems, and visual storytelling
             </p>
           </div>
 
           <Card className="glass p-6 sm:p-8 space-y-6">
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
               <div className="space-y-2">
                 <Brain className="w-8 h-8 text-primary mb-2" />
                 <h3 className="font-semibold text-lg">AI Call Support</h3>
@@ -155,6 +158,15 @@ const Home = () => {
                 <h3 className="font-semibold text-lg">AI Security Solutions</h3>
                 <p className="text-sm text-muted-foreground">
                   ML-powered threat detection and security automation
+                </p>
+              </div>
+              <div className="space-y-2">
+                <svg className="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <h3 className="font-semibold text-lg">Cinematography</h3>
+                <p className="text-sm text-muted-foreground">
+                  Professional video production and visual storytelling services
                 </p>
               </div>
             </div>
