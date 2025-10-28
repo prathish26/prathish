@@ -1,5 +1,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Trash2 } from "lucide-react";
 
 interface Photo {
   id: string;
@@ -18,9 +20,11 @@ interface UnifiedPhotoGridProps {
   photos: Photo[];
   onPhotoClick: (photo: Photo) => void;
   loading: boolean;
+  isAdmin?: boolean;
+  onDelete?: (photoId: string, imageUrl: string) => void;
 }
 
-export default function UnifiedPhotoGrid({ photos, onPhotoClick, loading }: UnifiedPhotoGridProps) {
+export default function UnifiedPhotoGrid({ photos, onPhotoClick, loading, isAdmin = false, onDelete }: UnifiedPhotoGridProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   if (loading) {
@@ -99,6 +103,22 @@ export default function UnifiedPhotoGrid({ photos, onPhotoClick, loading }: Unif
           {/* Animated corner accents */}
           <div className="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-primary/40 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
           <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-primary/40 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          
+          {/* Admin delete button for featured photo */}
+          {isAdmin && onDelete && (
+            <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Button
+                variant="destructive"
+                size="icon"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(photo.id, photo.image_url);
+                }}
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
         </div>
       ))}
 
@@ -204,6 +224,23 @@ export default function UnifiedPhotoGrid({ photos, onPhotoClick, loading }: Unif
                   : 'bg-gradient-to-r from-secondary/30 via-secondary/20 to-transparent'
                 }
               `} />
+
+              {/* Admin delete button */}
+              {isAdmin && onDelete && (
+                <div className="absolute top-3 right-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Button
+                    variant="destructive"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onDelete(photo.id, photo.image_url);
+                    }}
+                  >
+                    <Trash2 className="h-3 w-3" />
+                  </Button>
+                </div>
+              )}
             </div>
           );
         })}
