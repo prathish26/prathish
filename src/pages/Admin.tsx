@@ -31,6 +31,8 @@ interface Photo {
 
 export default function Admin() {
   const [user, setUser] = useState<any>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [checkingRole, setCheckingRole] = useState(true);
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -48,25 +50,65 @@ export default function Admin() {
   const [isFeatured, setIsFeatured] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        navigate("/auth");
-      } else {
-        setUser(session.user);
-        fetchPhotos();
-      }
-    });
+    checkAdminAccess();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (!session) {
         navigate("/auth");
       } else {
-        setUser(session.user);
+        checkAdminAccess();
       }
     });
 
     return () => subscription.unsubscribe();
   }, [navigate]);
+
+  const checkAdminAccess = async () => {
+    setCheckingRole(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
+        navigate("/auth");
+        return;
+      }
+
+      setUser(session.user);
+
+      // Check if user has admin role
+      const { data: roleData, error } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', session.user.id)
+        .eq('role', 'admin')
+        .maybeSingle();
+
+      if (error && error.code !== 'PGRST116') {
+        throw error;
+      }
+
+      if (roleData) {
+        setIsAdmin(true);
+        fetchPhotos();
+      } else {
+        setIsAdmin(false);
+        toast({
+          title: "Access Denied",
+          description: "You need admin privileges to access this page",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error("Error checking admin access:", error);
+      toast({
+        title: "Error",
+        description: "Failed to verify admin access",
+        variant: "destructive"
+      });
+    } finally {
+      setCheckingRole(false);
+    }
+  };
 
   const fetchPhotos = async () => {
     const { data } = await supabase
@@ -217,7 +259,58 @@ export default function Admin() {
     navigate("/");
   };
 
-  if (!user) return null;
+  if (checkingRole) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary" />
+          <p className="text-muted-foreground">Verifying admin access...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user || !isAdmin) {
+    return (
+      <div className="min-h-screen pt-20 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
+          <Card className="glass border-destructive/50">
+            <CardHeader>
+              <CardTitle className="text-destructive">Access Denied</CardTitle>
+              <CardDescription>
+                You need administrator privileges to access this page
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                To set up your first admin account:
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+                <li>First, create an account at <code className="text-foreground">/auth</code></li>
+                <li>Open the Backend dashboard</li>
+                <li>Navigate to Table Editor → user_roles</li>
+                <li>Insert a new row with:
+                  <ul className="list-disc list-inside ml-6 mt-1">
+                    <li>user_id: Your user ID (from auth.users table)</li>
+                    <li>role: admin</li>
+                  </ul>
+                </li>
+                <li>Return to this page and refresh</li>
+              </ol>
+              <div className="flex gap-2 pt-4">
+                <Button onClick={() => navigate("/auth")} variant="outline">
+                  Go to Login
+                </Button>
+                <Button onClick={() => navigate("/")} variant="secondary">
+                  Back to Home
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-20 pb-16">
