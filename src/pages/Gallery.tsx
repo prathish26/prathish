@@ -55,7 +55,7 @@ export default function Gallery() {
     try {
       const { data, error } = await supabase
         .from("photos")
-        .select("*")
+        .select("id, title, description, caption, story, category, image_url, thumbnail_url, tags, display_order, is_featured, created_at, updated_at")
         .order("is_featured", { ascending: false })
         .order("display_order", { ascending: true })
         .order("created_at", { ascending: false });
