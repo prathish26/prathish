@@ -77,12 +77,12 @@ const Home = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col items-center space-y-6 sm:space-y-8">
             {/* Profile Picture */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
+            <div className="relative w-48 sm:w-56 md:w-64 lg:w-72 aspect-[3/4] rounded-2xl overflow-hidden border-4 border-primary/50 shadow-2xl group">
+              <div className="absolute inset-0 bg-primary/20 blur-3xl animate-pulse-glow -z-10" />
               <img
                 src={prathishProfile.url}
                 alt="Prathish Raj"
-                className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/50 shadow-2xl scale-110 hover:scale-125 transition-transform duration-500"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
