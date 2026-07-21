@@ -82,7 +82,7 @@ const Home = () => {
               <img
                 src={prathishProfile.url}
                 alt="Prathish Raj"
-                className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/50 shadow-2xl"
+                className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/50 shadow-2xl scale-110 hover:scale-125 transition-transform duration-500"
               />
             </div>
 
