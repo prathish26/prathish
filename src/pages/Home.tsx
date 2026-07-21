@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
+import { ArrowRight, Shield, Brain, Terminal, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import prathishProfile from "@/assets/prathish-profile-new.jpg.asset.json";
@@ -34,7 +34,7 @@ const Home = () => {
       });
       const data = await response.json();
       const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "Error analyzing URL";
-      setScanResult(result.includes("MALICIOUS") 
+      setScanResult(result.includes("MALICIOUS")
         ? "⚠️ MALICIOUS SITE DETECTED - " + result
         : "✓ SITE SECURE - " + result
       );
@@ -71,27 +71,25 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
-        <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
+      <div className="container mx-auto max-w-6xl space-y-16 sm:space-y-24">
+        {/* Hero Section */}
+        <section>
           <div className="flex flex-col items-center space-y-6 sm:space-y-8">
-            {/* Profile Picture */}
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl group">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl group">
               <div className="absolute inset-0 bg-primary/20 blur-3xl animate-pulse-glow -z-10" />
               <img
                 src={prathishProfile.url}
                 alt="Prathish Raj"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
-            {/* Text Content */}
             <div className="text-center space-y-4 sm:space-y-6">
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold">
                 <span className="glow-primary">Prathish Raj</span>
               </h1>
-              <p className="text-lg sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto px-4">
+              <p className="text-lg sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
                 Architecting the Convergence of{" "}
                 <span className="text-primary font-semibold">AI</span>,{" "}
                 <span className="text-secondary font-semibold">Cybersecurity</span>, and{" "}
@@ -99,12 +97,20 @@ const Home = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Summary Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="container mx-auto max-w-4xl">
+        {/* About Summary */}
+        <section>
+          <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold glow-primary flex items-center justify-center gap-3">
+              <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
+              The Architect
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              A brief look at the mind behind the systems
+            </p>
+          </div>
+
           <Card className="glass p-6 sm:p-8 border-glow-primary">
             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
               Relentlessly curious and architect-minded, I thrive at the{" "}
@@ -124,43 +130,41 @@ const Home = () => {
               <span className="text-accent font-semibold">freelance cinematographer</span>, illuminating the unseen beauty of the world one frame at a time.
             </p>
           </Card>
-        </div>
-      </section>
+        </section>
 
-      {/* Freelance Services */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="container mx-auto max-w-4xl">
+        {/* Freelance Services */}
+        <section>
           <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold glow-secondary">Available for Freelance Projects</h2>
-            <p className="text-lg sm:text-xl text-muted-foreground px-4">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               Specializing in AI technologies, intelligent systems, and visual storytelling
             </p>
           </div>
 
-          <Card className="glass p-6 sm:p-8 space-y-6">
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              <div className="space-y-2">
+          <Card className="glass p-6 sm:p-8 space-y-6 border-glow-secondary">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                 <Brain className="w-8 h-8 text-primary mb-2" />
                 <h3 className="font-semibold text-lg">AI Call Support</h3>
                 <p className="text-sm text-muted-foreground">
                   Intelligent voice assistance systems powered by advanced LLMs
                 </p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                 <Terminal className="w-8 h-8 text-secondary mb-2" />
                 <h3 className="font-semibold text-lg">AI Support Systems</h3>
                 <p className="text-sm text-muted-foreground">
                   Smart automation and intelligent decision-making platforms
                 </p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                 <Shield className="w-8 h-8 text-accent mb-2" />
                 <h3 className="font-semibold text-lg">AI Security Solutions</h3>
                 <p className="text-sm text-muted-foreground">
                   ML-powered threat detection and security automation
                 </p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                 <svg className="w-8 h-8 text-secondary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 2a1 1 0 000 2h6a1 1 0 100-2H9zM4 5a2 2 0 012-2h.5a.5.5 0 010 1H6a1 1 0 00-1 1v13a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 00-1-1h-.5a.5.5 0 010-1H18a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm4 5a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1z" />
                 </svg>
@@ -169,7 +173,7 @@ const Home = () => {
                   User-centered design, wireframing, prototyping & design systems for web and mobile
                 </p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
                 <svg className="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
@@ -178,28 +182,26 @@ const Home = () => {
                   Professional video production, visual storytelling, and wildlife photography
                 </p>
               </div>
-            </div>
-
-            <div className="text-center pt-4">
-              <Link to="/contact">
-                <Button size="lg" className="group">
-                  Let's Collaborate
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <div className="flex items-center justify-center p-4 rounded-lg bg-primary/5 border border-primary/20">
+                <Link to="/contact">
+                  <Button size="lg" className="group">
+                    Let's Collaborate
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Card>
-        </div>
-      </section>
+        </section>
 
-
-
-      {/* Featured Projects - Interactive Arsenal */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 glow-primary">
-            The Interactive Arsenal
-          </h2>
+        {/* Interactive Arsenal */}
+        <section>
+          <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold glow-primary">The Interactive Arsenal</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Try live demos of projects built at the frontier of AI and security
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {/* AI Phishing Detection Demo */}
@@ -211,7 +213,7 @@ const Home = () => {
               <p className="text-muted-foreground">
                 ML-powered system with 98.7% accuracy
               </p>
-              
+
               <div className="space-y-2">
                 <Input
                   placeholder="Enter a URL to scan (demo)..."
@@ -219,8 +221,8 @@ const Home = () => {
                   onChange={(e) => setScanUrl(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleScan()}
                 />
-                <Button 
-                  onClick={handleScan} 
+                <Button
+                  onClick={handleScan}
                   className="w-full"
                   disabled={isScanning}
                 >
@@ -228,8 +230,8 @@ const Home = () => {
                 </Button>
                 {scanResult && (
                   <div className={`p-3 rounded-lg text-sm font-mono ${
-                    scanResult.includes("MALICIOUS") 
-                      ? "bg-destructive/20 text-destructive" 
+                    scanResult.includes("MALICIOUS")
+                      ? "bg-destructive/20 text-destructive"
                       : "bg-secondary/20 text-secondary"
                   }`}>
                     {scanResult}
@@ -251,7 +253,7 @@ const Home = () => {
               <p className="text-muted-foreground">
                 Automated security assessment tool
               </p>
-              
+
               <div className="space-y-2">
                 <Input
                   placeholder="Enter website URL to scan..."
@@ -259,8 +261,8 @@ const Home = () => {
                   onChange={(e) => setVulnUrl(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleVulnScan()}
                 />
-                <Button 
-                  onClick={handleVulnScan} 
+                <Button
+                  onClick={handleVulnScan}
                   className="w-full"
                   disabled={isVulnScanning}
                 >
@@ -292,15 +294,15 @@ const Home = () => {
               <p className="text-muted-foreground">
                 Traditional board game reimagined in mixed reality using Unreal Engine
               </p>
-              
+
               <div className="rounded-lg overflow-hidden">
-                <img 
-                  src={pallanguzhiGame} 
-                  alt="Pallanguzhi HoloLens 2 MR Game" 
+                <img
+                  src={pallanguzhiGame}
+                  alt="Pallanguzhi HoloLens 2 MR Game"
                   className="w-full h-64 object-cover"
                 />
               </div>
-              
+
               <p className="text-sm text-muted-foreground text-center">
                 Built with Unreal Engine 5 • HoloLens 2 • Spatial Computing
               </p>
@@ -310,8 +312,8 @@ const Home = () => {
               </Link>
             </Card>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
