@@ -63,9 +63,19 @@ const skillCategories = {
     "Python", "scikit-learn", "TensorFlow", "NLP", "LLMs",
     "Data Preprocessing", "Feature Engineering", "Model Optimization"
   ],
+  "UX Design (UXD)": [
+    "Figma", "Adobe XD", "Sketch", "Wireframing", "Prototyping",
+    "User Research", "Usability Testing", "Design Systems", "Information Architecture",
+    "Interaction Design", "Visual Design", "Accessibility (WCAG)", "User Journey Mapping",
+    "Design Thinking", "Responsive Design"
+  ],
   "DevOps & Cloud": [
     "Docker", "Kubernetes", "Jenkins", "Terraform", "Git",
     "Oracle Cloud (OCI)", "CI/CD", "Infrastructure as Code"
+  ],
+  "Creative & Media": [
+    "Cinematography", "Wildlife Photography", "Video Editing", "Motion Graphics",
+    "Adobe Premiere Pro", "DaVinci Resolve", "Color Grading", "Storytelling"
   ],
   "Languages": [
     "Python", "C++", "JavaScript", "SQL", "Bash", "PowerShell"

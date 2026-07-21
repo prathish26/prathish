@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
+import { ArrowRight, Shield, Brain, Terminal, ExternalLink, Camera, Leaf } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import prathishProfile from "@/assets/prathish-profile.jpg.asset.json";
+import prathishProfile from "@/assets/prathish-profile-new.jpg.asset.json";
 import pallanguzhiGame from "@/assets/pallanguzhi-mr-game.png";
 
 const Home = () => {
@@ -138,7 +138,7 @@ const Home = () => {
           </div>
 
           <Card className="glass p-6 sm:p-8 space-y-6">
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               <div className="space-y-2">
                 <Brain className="w-8 h-8 text-primary mb-2" />
                 <h3 className="font-semibold text-lg">AI Call Support</h3>
@@ -161,12 +161,21 @@ const Home = () => {
                 </p>
               </div>
               <div className="space-y-2">
+                <svg className="w-8 h-8 text-secondary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 2a1 1 0 000 2h6a1 1 0 100-2H9zM4 5a2 2 0 012-2h.5a.5.5 0 010 1H6a1 1 0 00-1 1v13a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 00-1-1h-.5a.5.5 0 010-1H18a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm4 5a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                </svg>
+                <h3 className="font-semibold text-lg">UX Design (UXD)</h3>
+                <p className="text-sm text-muted-foreground">
+                  User-centered design, wireframing, prototyping & design systems for web and mobile
+                </p>
+              </div>
+              <div className="space-y-2">
                 <svg className="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
-                <h3 className="font-semibold text-lg">Cinematography</h3>
+                <h3 className="font-semibold text-lg">Cinematography & Wildlife</h3>
                 <p className="text-sm text-muted-foreground">
-                  Professional video production and visual storytelling services
+                  Professional video production, visual storytelling, and wildlife photography
                 </p>
               </div>
             </div>
@@ -182,6 +191,40 @@ const Home = () => {
           </Card>
         </div>
       </section>
+
+      {/* Wildlife Photography Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="glass p-6 sm:p-8 border-glow-accent space-y-4">
+            <div className="flex items-center gap-3">
+              <Leaf className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl sm:text-4xl font-bold glow-accent">Through the Wild Lens</h2>
+            </div>
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              Beyond the terminal, I roam forests, wetlands, and coastlines as a{" "}
+              <span className="text-accent font-semibold">wildlife photographer</span>—patiently tracking
+              birds in flight, big cats at dawn, and the quiet drama of untouched ecosystems. Every frame is a
+              study in composition, light, and behavior: capturing fleeting moments that speak louder than words
+              and reminding us of the wild worlds worth protecting.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              From <span className="text-primary font-semibold">telephoto safaris</span> to{" "}
+              <span className="text-secondary font-semibold">macro details</span>, my portfolio blends technical
+              precision with storytelling—the same architect's eye I bring to code.
+            </p>
+            <div className="pt-2">
+              <Link to="/gallery">
+                <Button size="lg" variant="outline" className="group">
+                  <Camera className="mr-2 h-4 w-4" />
+                  Explore the Gallery
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </div>
+      </section>
+
 
       {/* Featured Projects - Interactive Arsenal */}
       <section className="py-12 sm:py-16 px-4 sm:px-6">

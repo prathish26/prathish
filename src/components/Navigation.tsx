@@ -15,9 +15,9 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   const links = [
-    { path: "/", label: "Hub" },
-    { path: "/projects", label: "Case Studies" },
-    { path: "/experience", label: "Blueprint" },
+    { path: "/", label: "Overview" },
+    { path: "/projects", label: "Projects" },
+    { path: "/experience", label: "Experiences" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
   ];
