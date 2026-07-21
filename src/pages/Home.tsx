@@ -80,7 +80,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
               <img
-                src={prathishProfile}
+                src={prathishProfile.url}
                 alt="Prathish Raj"
                 className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/50 shadow-2xl"
               />
