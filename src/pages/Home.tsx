@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
+import { ArrowRight, Shield, Brain, Terminal, ExternalLink, Camera, Leaf } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import prathishProfile from "@/assets/prathish-profile-new.jpg.asset.json";
