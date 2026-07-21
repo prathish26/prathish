@@ -192,6 +192,40 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Wildlife Photography Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="glass p-6 sm:p-8 border-glow-accent space-y-4">
+            <div className="flex items-center gap-3">
+              <Leaf className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl sm:text-4xl font-bold glow-accent">Through the Wild Lens</h2>
+            </div>
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              Beyond the terminal, I roam forests, wetlands, and coastlines as a{" "}
+              <span className="text-accent font-semibold">wildlife photographer</span>—patiently tracking
+              birds in flight, big cats at dawn, and the quiet drama of untouched ecosystems. Every frame is a
+              study in composition, light, and behavior: capturing fleeting moments that speak louder than words
+              and reminding us of the wild worlds worth protecting.
+            </p>
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              From <span className="text-primary font-semibold">telephoto safaris</span> to{" "}
+              <span className="text-secondary font-semibold">macro details</span>, my portfolio blends technical
+              precision with storytelling—the same architect's eye I bring to code.
+            </p>
+            <div className="pt-2">
+              <Link to="/gallery">
+                <Button size="lg" variant="outline" className="group">
+                  <Camera className="mr-2 h-4 w-4" />
+                  Explore the Gallery
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+
       {/* Featured Projects - Interactive Arsenal */}
       <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
