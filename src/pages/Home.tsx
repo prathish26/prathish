@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Brain, Terminal, ExternalLink, Camera, Leaf } from "lucide-react";
+import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import prathishProfile from "@/assets/prathish-profile-new.jpg.asset.json";
@@ -77,12 +77,12 @@ const Home = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col items-center space-y-6 sm:space-y-8">
             {/* Profile Picture */}
-            <div className="relative w-48 sm:w-56 md:w-64 lg:w-72 aspect-[3/4] rounded-2xl overflow-hidden border-4 border-primary/50 shadow-2xl group">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl group">
               <div className="absolute inset-0 bg-primary/20 blur-3xl animate-pulse-glow -z-10" />
               <img
                 src={prathishProfile.url}
                 alt="Prathish Raj"
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
@@ -192,38 +192,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Wildlife Photography Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="container mx-auto max-w-4xl">
-          <Card className="glass p-6 sm:p-8 border-glow-accent space-y-4">
-            <div className="flex items-center gap-3">
-              <Leaf className="w-8 h-8 text-accent" />
-              <h2 className="text-3xl sm:text-4xl font-bold glow-accent">Through the Wild Lens</h2>
-            </div>
-            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-              Beyond the terminal, I roam forests, wetlands, and coastlines as a{" "}
-              <span className="text-accent font-semibold">wildlife photographer</span>—patiently tracking
-              birds in flight, big cats at dawn, and the quiet drama of untouched ecosystems. Every frame is a
-              study in composition, light, and behavior: capturing fleeting moments that speak louder than words
-              and reminding us of the wild worlds worth protecting.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-              From <span className="text-primary font-semibold">telephoto safaris</span> to{" "}
-              <span className="text-secondary font-semibold">macro details</span>, my portfolio blends technical
-              precision with storytelling—the same architect's eye I bring to code.
-            </p>
-            <div className="pt-2">
-              <Link to="/gallery">
-                <Button size="lg" variant="outline" className="group">
-                  <Camera className="mr-2 h-4 w-4" />
-                  Explore the Gallery
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </Card>
-        </div>
-      </section>
 
 
       {/* Featured Projects - Interactive Arsenal */}
