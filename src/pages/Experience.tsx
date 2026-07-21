@@ -8,7 +8,7 @@ const experiences = [
   {
     role: "User Experience Designer (UXD)",
     company: "Avasoft - Chennai, India",
-    period: "6 Months Internship with 6 LPA Job Opportunity",
+    period: "December 2025 - june 2026",
     achievements: [
       "Completed 6-month internship as User Experience Designer with a job opportunity of 6 LPA",
       "Designed intuitive user experiences and interfaces for enterprise applications",
