@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Shield, Brain, Terminal, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import prathishProfile from "@/assets/prathish-profile.jpg";
+import prathishProfile from "@/assets/prathish-profile.jpg.asset.json";
 import pallanguzhiGame from "@/assets/pallanguzhi-mr-game.png";
 
 const Home = () => {

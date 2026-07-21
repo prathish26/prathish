@@ -6,6 +6,16 @@ import { Building, Award } from "lucide-react";
 
 const experiences = [
   {
+    role: "User Experience Designer (UXD)",
+    company: "Avasoft - Chennai, India",
+    period: "6 Months Internship with 6 LPA Job Opportunity",
+    achievements: [
+      "Completed 6-month internship as User Experience Designer with a job opportunity of 6 LPA",
+      "Designed intuitive user experiences and interfaces for enterprise applications",
+      "Collaborated with cross-functional teams to deliver user-centered design solutions"
+    ]
+  },
+  {
     role: "Drone Security & Automation Intern",
     company: "NTech.labs - Chennai, India",
     period: "June 2025 - July 2025",
