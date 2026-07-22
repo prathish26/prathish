@@ -12,6 +12,7 @@ const experiences = [
     achievements: [
       "Completed 6-month internship as User Experience Designer with a job opportunity of 6 LPA",
       "Designed intuitive user experiences and interfaces for enterprise applications",
+      "Led multiple external projects and conducted client walkthroughs of the applications we built",
       "Collaborated with cross-functional teams to deliver user-centered design solutions"
     ]
   },
