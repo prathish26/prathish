@@ -92,8 +92,9 @@ const Home = () => {
               <p className="text-lg sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto">
                 Architecting the Convergence of{" "}
                 <span className="text-primary font-semibold">AI</span>,{" "}
-                <span className="text-secondary font-semibold">Cybersecurity</span>, and{" "}
-                <span className="text-accent font-semibold">DevOps</span>
+                <span className="text-secondary font-semibold">Cybersecurity</span>,{" "}
+                <span className="text-accent font-semibold">DevOps</span>, and{" "}
+                <span className="text-primary font-semibold">UXD</span>
               </p>
             </div>
           </div>
