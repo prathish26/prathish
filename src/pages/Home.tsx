@@ -115,7 +115,7 @@ const Home = () => {
           <Card className="glass p-6 sm:p-8 border-glow-primary">
             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
               Relentlessly curious and architect-minded, I thrive at the{" "}
-              <span className="text-primary font-semibold">intersection of cybersecurity, DevOps, and AI automation</span>.
+              <span className="text-primary font-semibold">intersection of cybersecurity, DevOps, AI automation, and UX design</span>.
               With a strong foundation in{" "}
               <span className="text-secondary font-semibold">Java, Python, and system-level design</span>, I engineer secure, scalable, and intelligent solutions that blend automation with innovation.
               I specialize in{" "}
