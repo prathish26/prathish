@@ -170,7 +170,7 @@ const Home = () => {
                 </svg>
                 <h3 className="font-semibold text-lg">UX Design (UXD)</h3>
                 <p className="text-sm text-muted-foreground">
-                  User-centered design, wireframing, prototyping & design systems for web and mobile
+                  User-centered design, wireframing, prototyping & design systems for web and mobile. Led multiple external projects and conducted client walkthroughs of the applications we built.
                 </p>
               </div>
               <div className="space-y-2 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
