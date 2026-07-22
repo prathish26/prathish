@@ -114,21 +114,22 @@ const Home = () => {
 
           <Card className="glass p-6 sm:p-8 border-glow-primary">
             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-              Relentlessly curious and architect-minded, I thrive at the{" "}
-              <span className="text-primary font-semibold">intersection of cybersecurity, DevOps, AI automation, and UX design</span>.
-              With a strong foundation in{" "}
-              <span className="text-secondary font-semibold">Java, Python, and system-level design</span>, I engineer secure, scalable, and intelligent solutions that blend automation with innovation.
-              I specialize in{" "}
+              Relentlessly curious and architect-minded, I operate at the intersection of{" "}
+              <span className="text-primary font-semibold">cybersecurity, DevOps, AI automation, and user experience design</span>.
+              Grounded in{" "}
+              <span className="text-secondary font-semibold">Java, Python, and system-level design</span>, I build secure, scalable, and intelligent systems where automation meets human-centered craft.
+              My work spans{" "}
               <span className="text-primary font-semibold">LLM-powered agents</span>,{" "}
-              <span className="text-accent font-semibold">cloud-native architectures</span>, and adaptive{" "}
-              <span className="text-secondary font-semibold">DevOps pipelines</span> that think and evolve in real time.
+              <span className="text-accent font-semibold">cloud-native architectures</span>, adaptive{" "}
+              <span className="text-secondary font-semibold">DevOps pipelines</span>, and thoughtful{" "}
+              <span className="text-primary font-semibold">UX design systems</span> that translate complex ideas into clear, intuitive experiences.
               A creator at heart with a{" "}
-              <span className="text-primary font-semibold">security-first mindset</span>, I'm fluent across code, architecture, and emerging technologies—from{" "}
-              <span className="text-accent font-semibold">XR experiences</span> to{" "}
-              <span className="text-secondary font-semibold">backend intelligence</span>—bridging complex domains with clarity, precision, and forward-thinking engineering.
-              Beyond the technical realm, I capture stories through the lens as a{" "}
-              <span className="text-primary font-semibold">wildlife photographer</span> and{" "}
-              <span className="text-accent font-semibold">freelance cinematographer</span>, illuminating the unseen beauty of the world one frame at a time.
+              <span className="text-accent font-semibold">security-first mindset</span>, I move fluidly between code, architecture, and emerging tech—from{" "}
+              <span className="text-secondary font-semibold">XR experiences</span> to{" "}
+              <span className="text-primary font-semibold">backend intelligence</span>—uniting engineering rigor with design sensibility.
+              Beyond the screen, I capture stories through the lens as a{" "}
+              <span className="text-accent font-semibold">wildlife photographer</span> and{" "}
+              <span className="text-secondary font-semibold">freelance cinematographer</span>, illuminating the unseen beauty of the world one frame at a time.
             </p>
           </Card>
         </section>
